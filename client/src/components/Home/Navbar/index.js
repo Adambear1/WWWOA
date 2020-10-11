@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 // styles
 import "./styles.css";
 // images
 import image from "./images/wrestling.jpg";
 
 function Navbar() {
+  useEffect(() => {}, []);
   return (
     <div class="uk-position-relative navbar">
-      <div class="nav-image-div">
-        <img src={image} alt="" class="nav-image" />
+      <div class="nav-img-container">
+        <img class="nav-image" src={image} />
       </div>
+
       <div class="uk-position-top">
         <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar="true">
           <div class="uk-navbar-left">

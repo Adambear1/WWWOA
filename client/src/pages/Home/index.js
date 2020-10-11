@@ -1,8 +1,19 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import Container from "../../components/Home/Container";
+import Navbar from "../../components/Home/Navbar";
+import NavTitle from "../../components/Home/NavTitle";
 
 function Home() {
-  return <Navbar />;
+  return (
+    <>
+      <Navbar />
+      <NavTitle />
+      <div class="uk-container">
+        {" "}
+        <Container />
+      </div>
+    </>
+  );
 }
 
 export default Home;

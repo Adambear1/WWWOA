@@ -6,8 +6,10 @@ import image from "./images/wrestling.jpg";
 
 function Navbar() {
   return (
-    <div class="uk-position-relative">
-      <img src={image} alt="" class="nav-image" />
+    <div class="uk-position-relative navbar">
+      <div class="nav-image-div">
+        <img src={image} alt="" class="nav-image" />
+      </div>
       <div class="uk-position-top">
         <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar="true">
           <div class="uk-navbar-left">

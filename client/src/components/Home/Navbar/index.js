@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import "./styles.css";
 // images
 import image from "./images/wrestling.jpg";
+import NavbarLogin from "../NavbarLogin";
 
 function Navbar() {
   useEffect(() => {}, []);
@@ -17,37 +18,20 @@ function Navbar() {
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
               <li class="uk-active">
-                <a href="#">Active</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="#">Item</a>
+                <a href="#about">About</a>
               </li>
               <li>
-                <a href="#">Parent</a>
-                <div class="uk-navbar-dropdown">
-                  <ul class="uk-nav uk-navbar-dropdown-nav">
-                    <li class="uk-active">
-                      <a href="#">Active</a>
-                    </li>
-                    <li>
-                      <a href="#">Item</a>
-                    </li>
-                    <li class="uk-nav-header">Header</li>
-                    <li>
-                      <a href="#">Item</a>
-                    </li>
-                    <li>
-                      <a href="#">Item</a>
-                    </li>
-                    <li class="uk-nav-divider"></li>
-                    <li>
-                      <a href="#">Item</a>
-                    </li>
-                  </ul>
-                </div>
+                <a href="#join">Join</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
               </li>
             </ul>
           </div>
+          <NavbarLogin />
         </nav>
       </div>
     </div>

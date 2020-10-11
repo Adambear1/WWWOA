@@ -1,13 +1,14 @@
 import React from "react";
-import Announcements from "../Announcements";
+import About from "../About";
+import Contact from "../Contact";
+import Join from "../Join";
 
 function Container() {
   return (
     <div uk-grid="true">
-      <div>
-        <Announcements />
-      </div>
-      <div></div>
+      <About />
+      <Join />
+      <Contact />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import React from "react";
 
-function Announcements() {
+function About() {
   return (
     <div>
       <div>
-        <h1 class="uk-heading-bullet">Announcements</h1>
+        <h1 class="uk-heading-bullet">About</h1>
         <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
           <p>
             Ut condimentum finibus est, ultricies facilisis elit feugiat nec.
@@ -40,4 +40,4 @@ function Announcements() {
   );
 }
 
-export default Announcements;
+export default About;

@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import API from "../../../utils/API";
+import { Context } from "../../Context";
 
 function NavbarLogin() {
   const [data, setData] = useState({
     name: "",
     password: "",
   });
+  const { value, setValue } = useContext(Context);
   const [jwt, setJWT] = useState("");
   useEffect(() => {
-    API.Validate(data).then(({ data }) => {
-      console.log(data);
-    });
-  }, [data.password.length === 6]);
+    if (data.password.length === 7) {
+      API.Validate(data).then(({ data }) => {
+        let { token } = data;
+        setJWT(token);
+        setValue({ jwt });
+      });
+    }
+  }, [data]);
   function onSubmit(e) {
     e.preventDefault();
+    API.Login(data, jwt).then(({ data }) => {});
   }
   return (
     <div class="uk-navbar-right">
@@ -24,7 +31,7 @@ function NavbarLogin() {
             <ul class="uk-nav uk-navbar-dropdown-nav">
               <li class="uk-active">
                 <div class="uk-text-center">Login</div>
-                <form>
+                <form onSubmit={onSubmit}>
                   <div class="uk-margin">
                     <div class="uk-inline">
                       <span class="uk-form-icon" uk-icon="icon: user"></span>
@@ -60,7 +67,7 @@ function NavbarLogin() {
                       class="uk-button uk-button-default uk-margin-auto"
                       onSubmit={onSubmit}
                     >
-                      Login
+                      <a href="/main">Login</a>
                     </button>
                   )}
                 </form>

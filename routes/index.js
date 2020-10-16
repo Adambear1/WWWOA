@@ -10,7 +10,6 @@ router.post("/create", ({ body }, res) => {
   });
 });
 router.post("/validate", ({ body }, res) => {
-  console.log(body);
   db.findOne(body)
     .then((data) => {
       if (data) {
@@ -26,14 +25,15 @@ router.post("/validate", ({ body }, res) => {
           }
         );
       } else {
-        res.setStatus(403);
+        res.status(403).json({ err: "Invalid User" });
       }
     })
     .catch((err) => {
-      res.setStatus(403);
+      res.status(403).json({ err });
     });
 });
 router.post("/", VerifyToken, ({ token }, res) => {
+  console.log(token);
   jwt.verify(
     token,
     process.env.SECRET,

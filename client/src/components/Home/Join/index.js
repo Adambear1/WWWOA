@@ -5,7 +5,9 @@ function Join() {
   return (
     <div>
       <div class="uk-width-1-1">
-        <h1 class="uk-heading-bullet">Join</h1>
+        <h1 class="uk-heading-bullet" id="join">
+          Join
+        </h1>
         <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light join-form">
           <form>
             <input

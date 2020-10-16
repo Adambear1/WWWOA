@@ -4,6 +4,8 @@ import "./styles.css";
 // images
 import image from "./images/wrestling.jpg";
 import NavbarLogin from "../NavbarLogin";
+// utils
+import { Link } from "react-scroll";
 
 function Navbar() {
   useEffect(() => {}, []);
@@ -18,16 +20,24 @@ function Navbar() {
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
               <li class="uk-active">
-                <a href="/">Home</a>
+                <Link to="" smooth={true} offset={50} duration={500}>
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#about">About</a>
+                <Link to="about" smooth={true} offset={50} duration={500}>
+                  About
+                </Link>
               </li>
               <li>
-                <a href="#join">Join</a>
+                <Link to="join" smooth={true} offset={50} duration={500}>
+                  Join
+                </Link>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <Link to="footer" smooth={true} offset={50} duration={500}>
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>

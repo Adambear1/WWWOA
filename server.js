@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// app.use("/api/inquire", require("./routes/inquire"));
+app.use("/api/login", require("./routes"));
 // app.use("/api/sendEmail", require("./routes/email"));
 // app.use("/api/careers", require("./routes/careers"));
 

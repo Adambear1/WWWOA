@@ -23,9 +23,9 @@ function NavbarLogin(props) {
   function onSubmit(e) {
     e.preventDefault();
     API.Login(data, jwt).then(({ data }) => {
-      auth.login(() => {
-        props.history.push("/app");
-      });
+      // auth.login(() => {
+      window.location.href = "/main";
+      // });
     });
   }
   console.log(value);

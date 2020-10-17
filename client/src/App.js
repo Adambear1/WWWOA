@@ -17,7 +17,7 @@ function App() {
           <Context.Provider value={val}>
             <Route exact path="/" component={Home} />
             <ProtectedRoute path="/main" component={Main} />
-            <Route path="*" component={Restricted} />
+            {/* <Route path="*" component={Restricted} /> */}
           </Context.Provider>
         </Switch>
       </Router>

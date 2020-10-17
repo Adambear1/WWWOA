@@ -1,11 +1,15 @@
 import React from "react";
 import LandingPage from "../../components/Main/LandingPage";
+import Schedule from "../../components/Main/Schedule";
 
 function Main() {
   return (
-    <div>
+    <>
       <LandingPage />
-    </div>
+      <div className="uk-container">
+        <Schedule />
+      </div>
+    </>
   );
 }
 

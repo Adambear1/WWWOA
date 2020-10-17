@@ -10,12 +10,11 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) => {
         try {
-          console.log(auth.isAuthenticated());
-          return auth.isAuthenticated() ? (
-            <Component {...props} />
-          ) : (
-            <Redirect to="/Restricted" />
-          );
+          //   return value ? (
+          return <Component {...props} />;
+          // ) : (
+          //   <Redirect to="/Restricted" />
+          // );
         } catch (error) {
           console.log("No Value");
         }

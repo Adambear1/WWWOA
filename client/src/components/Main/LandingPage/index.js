@@ -1,30 +1,59 @@
 import React from "react";
+import { Link } from "react-scroll";
 
 function LandingPage() {
   return (
     <div class="uk-section-secondary uk-preserve-color">
-      <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+      <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
         <nav class="uk-navbar-container">
           <div class="uk-container uk-container-expand">
             <div uk-navbar="true">
               <ul class="uk-navbar-nav">
                 <li class="uk-active">
-                  <a href="#">Announcements</a>
+                  <Link to="" smooth={true} offset={50} duration={500}>
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Schedule</a>
+                  <Link
+                    to="announcements"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    Announcements
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Rule Changes</a>
+                  <Link to="schedule" smooth={true} offset={50} duration={500}>
+                    schedule
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="rulechanges"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    Rule Changes
+                  </Link>
+                </li>
+                <li>
+                  <Link to="zoomlink" smooth={true} offset={50} duration={500}>
+                    Zoom Link
+                  </Link>
                 </li>
               </ul>
+              <nav class="uk-navbar-right" uk-navbar="true">
+                <ul class="uk-navbar-nav">
+                  <li>
+                    <a href="/">Logout</a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
-          {/* <nav class="uk-navbar-right" uk-navbar="true"> */}
-          {/* <ul class="uk-navbar-nav">
-              <li>Logout</li>
-            </ul>
-          </nav> */}
         </nav>
       </div>
 

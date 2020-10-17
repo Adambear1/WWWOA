@@ -16,7 +16,9 @@ function Schedule() {
 
   return (
     <>
-      <h1 class="uk-text-center calendar-header">Schedule</h1>
+      <h1 class="uk-text-center calendar-header" id="schedule">
+        Schedule
+      </h1>
       <div class="calendar-container uk-child-width-1-2@s" uk-grid="true">
         <div class="calendar">
           <Calendar

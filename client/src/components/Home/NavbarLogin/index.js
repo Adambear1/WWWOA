@@ -33,7 +33,7 @@ function NavbarLogin(props) {
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li>
-          <a href="#">Login</a>
+          <a>Login</a>
           <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
               <li class="uk-active">

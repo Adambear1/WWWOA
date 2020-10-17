@@ -1,8 +1,10 @@
+import session from "express-session";
 import React, { useEffect, useState, useContext } from "react";
+import auth from "../../../Authenticate";
 import API from "../../../utils/API";
 import { Context } from "../../Context";
 
-function NavbarLogin() {
+function NavbarLogin(props) {
   const [data, setData] = useState({
     name: "",
     password: "",
@@ -20,8 +22,13 @@ function NavbarLogin() {
   }, [data]);
   function onSubmit(e) {
     e.preventDefault();
-    API.Login(data, jwt).then(({ data }) => {});
+    API.Login(data, jwt).then(({ data }) => {
+      auth.login(() => {
+        props.history.push("/app");
+      });
+    });
   }
+  console.log(value);
   return (
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
@@ -67,7 +74,7 @@ function NavbarLogin() {
                       class="uk-button uk-button-default uk-margin-auto"
                       onSubmit={onSubmit}
                     >
-                      <a href="/main">Login</a>
+                      Login
                     </button>
                   )}
                 </form>

@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import { Context } from "./components/Context";
+import React, { useEffect, useState, useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
+import auth from "./Authenticate";
+import { Context } from "./components/Context";
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
   const { value, setValue } = useContext(Context);
@@ -8,22 +9,13 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        console.log(value);
         try {
-          if (value.jwt.length > 1) {
-            return <Component {...props} />;
-          } else {
-            return (
-              <Redirect
-                to={{
-                  pathname: "/Restricted",
-                  state: {
-                    from: props.location,
-                  },
-                }}
-              />
-            );
-          }
+          console.log(auth.isAuthenticated());
+          return auth.isAuthenticated() ? (
+            <Component {...props} />
+          ) : (
+            <Redirect to="/Restricted" />
+          );
         } catch (error) {
           console.log("No Value");
         }

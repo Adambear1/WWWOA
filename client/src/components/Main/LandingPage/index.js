@@ -40,9 +40,9 @@ function LandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="zoomlink" smooth={true} offset={50} duration={500}>
-                    Zoom Link
-                  </Link>
+                  <a uk-toggle="target: #chatroom" type="button">
+                    Chat Room
+                  </a>
                 </li>
               </ul>
               <nav class="uk-navbar-right" uk-navbar="true">

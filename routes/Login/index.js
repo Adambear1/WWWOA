@@ -1,8 +1,8 @@
 require("dotenv").config();
 const router = require("express").Router();
-const db = require("../models");
+const db = require("../../models");
 const jwt = require("jsonwebtoken");
-const { VerifyToken } = require("../utils/VerifyToken");
+const { VerifyToken } = require("../../utils/VerifyToken");
 
 router.post("/create", ({ body }, res) => {
   db.create(body).then((data) => {

@@ -1,7 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const app = express();
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
+const socketio = require("socket.io");
+const http = require("http");
+const server = http.createServer(app);
+const io = socketio(server);
+
 const db = require("./config");
 const morgan = require("morgan");
 const cors = require("cors");
@@ -11,7 +17,6 @@ const expressSession = require("express-session");
 const MongoStore = require("connect-mongo")(expressSession);
 
 const PORT = process.env.PORT || 5000;
-const app = express();
 
 app.use(helmet());
 app.use(bodyParser.json());
@@ -36,14 +41,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use("/api/login", require("./routes"));
-// app.use("/api/sendEmail", require("./routes/email"));
+app.use("/api/login", require("./routes/Login"));
+app.use("/api/sendEmail", require("./routes/Zoom"));
 // app.use("/api/careers", require("./routes/careers"));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`PORT ${PORT}`);
 });

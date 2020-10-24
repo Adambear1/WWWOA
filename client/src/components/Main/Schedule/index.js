@@ -4,7 +4,7 @@ import "./styles.css";
 import "react-calendar/dist/Calendar.css";
 // utils
 import Calendar from "react-calendar";
-import { ProtectedRoute } from "../../../Protected.Route";
+import { ProtectedRoute } from "../../PrivateRoute";
 
 function Schedule() {
   const [date, setDate] = useState(new Date());

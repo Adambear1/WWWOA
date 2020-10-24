@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-scroll";
+// import { Context } from "../../Context";
 
 function LandingPage() {
+  // const { value, setValue } = useContext(Context);
   return (
     <div class="uk-section-secondary uk-preserve-color">
       <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-dark; top: 200">
@@ -40,7 +42,13 @@ function LandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <a uk-toggle="target: #chatroom" type="button">
+                  <a
+                    uk-toggle="target: #chatroom"
+                    type="button"
+                    // onClick={() => {
+                    //   setValue({ login: true });
+                    // }}
+                  >
                     Chat Room
                   </a>
                 </li>

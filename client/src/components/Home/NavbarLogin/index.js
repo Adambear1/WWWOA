@@ -1,34 +1,28 @@
-import session from "express-session";
-import React, { useEffect, useState, useContext } from "react";
-import auth from "../../../Authenticate";
-import API from "../../../utils/API";
-import { Context } from "../../Context";
+import React, { useEffect, useState, useContext, useRef } from "react";
+import { useAuth } from "../../../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 function NavbarLogin(props) {
-  const [data, setData] = useState({
-    name: "",
-    password: "",
-  });
-  const { value, setValue } = useContext(Context);
-  const [jwt, setJWT] = useState("");
-  useEffect(() => {
-    if (data.password.length === 7) {
-      API.Validate(data).then(({ data }) => {
-        let { token } = data;
-        setJWT(token);
-        setValue({ jwt });
-      });
-    }
-  }, [data]);
-  function onSubmit(e) {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState("");
+  const history = useHistory();
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    API.Login(data, jwt).then(({ data }) => {
-      // auth.login(() => {
-      window.location.href = "/main";
-      // });
-    });
-  }
-  console.log(value);
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
+    } catch (error) {
+      setError("Failed to Login.");
+    }
+    setLoading(false);
+  };
+
   return (
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
@@ -46,9 +40,7 @@ function NavbarLogin(props) {
                         class="uk-input"
                         name="name"
                         type="text"
-                        onChange={(e) =>
-                          setData({ ...data, [e.target.name]: e.target.value })
-                        }
+                        ref={emailRef}
                       />
                     </div>
                   </div>
@@ -63,20 +55,20 @@ function NavbarLogin(props) {
                         class="uk-input"
                         type="password"
                         name="password"
-                        onChange={(e) =>
-                          setData({ ...data, [e.target.name]: e.target.value })
-                        }
+                        ref={passwordRef}
                       />
                     </div>
                   </div>
-                  {data.name && data.password && (
-                    <button
-                      class="uk-button uk-button-default uk-margin-auto"
-                      onSubmit={onSubmit}
-                    >
-                      Login
-                    </button>
-                  )}
+                  {/* {emailRef.current.value.length > 1 &&
+                    passwordRef.current.value.length > 1 && ( */}
+                  <button
+                    class="uk-button uk-button-default uk-margin-auto"
+                    disabled={loading}
+                    type="submit"
+                  >
+                    Login
+                  </button>
+                  {/* )} */}
                 </form>
               </li>
             </ul>

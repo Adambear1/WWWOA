@@ -1,25 +1,22 @@
-import React, { useState, useMemo, useContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Context } from "./components/Context";
 import Main from "./pages/Main";
 import Home from "./pages/Home";
 import Restricted from "./pages/Restricted";
-import { ProtectedRoute } from "./Protected.Route";
+import PrivateRoute from "./components/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
-  const [value, setValue] = useState();
-  const val = useMemo(() => ({ value, setValue }), [value, setValue]);
-
   return (
     <>
       <Router>
-        <Switch>
-          <Context.Provider value={val}>
+        <AuthProvider>
+          <Switch>
             <Route exact path="/" component={Home} />
-            <ProtectedRoute path="/main" component={Main} />
+            <PrivateRoute path="/main" component={Main} />
             {/* <Route path="*" component={Restricted} /> */}
-          </Context.Provider>
-        </Switch>
+          </Switch>
+        </AuthProvider>
       </Router>
     </>
   );

@@ -42,7 +42,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use("/api/login", require("./routes/Login"));
-app.use("/api/sendEmail", require("./routes/Zoom"));
+app.use("/api/chatroom", require("./routes/ChatRoom"));
 // app.use("/api/careers", require("./routes/careers"));
 
 app.get("*", (req, res) => {

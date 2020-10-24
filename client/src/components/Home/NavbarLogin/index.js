@@ -1,4 +1,7 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
+// styles
+import "./styles.css";
+// context
 import { useAuth } from "../../../context/AuthContext";
 import { useHistory } from "react-router-dom";
 
@@ -24,57 +27,31 @@ function NavbarLogin(props) {
   };
 
   return (
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-        <li>
-          <a>Login</a>
-          <div class="uk-navbar-dropdown">
-            <ul class="uk-nav uk-navbar-dropdown-nav">
-              <li class="uk-active">
-                <div class="uk-text-center">Login</div>
-                <form onSubmit={onSubmit}>
-                  <div class="uk-margin">
-                    <div class="uk-inline">
-                      <span class="uk-form-icon" uk-icon="icon: user"></span>
-                      <input
-                        class="uk-input"
-                        name="name"
-                        type="text"
-                        ref={emailRef}
-                      />
-                    </div>
-                  </div>
-
-                  <div class="uk-margin">
-                    <div class="uk-inline">
-                      <span
-                        class="uk-form-icon uk-form-icon"
-                        uk-icon="icon: lock"
-                      ></span>
-                      <input
-                        class="uk-input"
-                        type="password"
-                        name="password"
-                        ref={passwordRef}
-                      />
-                    </div>
-                  </div>
-                  {/* {emailRef.current.value.length > 1 &&
-                    passwordRef.current.value.length > 1 && ( */}
-                  <button
-                    class="uk-button uk-button-default uk-margin-auto"
-                    disabled={loading}
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                  {/* )} */}
-                </form>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+    <div class="collapse" id="login">
+      {/* <form onSubmit={onSubmit}> */}
+      <div class="form-group collapse-form-group">
+        <input
+          type="email"
+          ref={emailRef}
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Email"
+        />
+      </div>
+      <div class="form-group collapse-form-group">
+        <input
+          type="password"
+          ref={passwordRef}
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+        />
+      </div>
+      <button type="submit" disabled={loading} class="btn btn-primary">
+        Submit
+      </button>
+      {/* </form> */}
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.collapse{
+    position: absolute;
+    background-color: black;
+    right: 0px !important
+}
+
+.collapse-form-group{
+    right: 0px !important;
+    width: 25% !important
+}

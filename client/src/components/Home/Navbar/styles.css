@@ -1,47 +1,12 @@
-/* Over lay */
-.navbar::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.navbar::after{
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0),
-      rgba(0, 0, 0, 1) 90%
-    );
-    width: 100%;
-    height: 4em;
+.navbar a, .navbar button, .navbar-text{
+    color: rgb(172, 172, 172) !important;
+    z-index: 100
 }
 
-/*  Image */
-.nav-image{
-    margin-left: 460px;
-    margin-top: 75px;
-    box-shadow: 12px -1px 15px -10px white, -12px -1px 8px -10px white;
+.navbar a:hover{
+    cursor: pointer;
 }
-/* Swiper */
-.swiper-container-nav {
-    /* width: 300px;
-    height: 300px; */
-    /* position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px; */
-  }
 
-  .swiper-slide-nav {
-    /* background-position: center;
-    background-size: cover; */
-  }
+.navbar a:last-child{
+    right: 0px!important
+}
